@@ -1,0 +1,44 @@
+.statusInfo {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    margin-top: 15px;
+    gap: 6px;
+}
+
+.title {
+    font-size: 8px;
+    color: #959494;
+}
+
+.status {
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: red;
+}
+
+.statuses {
+    display: flex;
+    gap: 2px;
+}
+
+.status1 {
+    background: #EDEDED;
+}
+
+.status2 {
+    background: #ACD5F2;
+}
+
+.status3 {
+    background: #7FA8C9;
+}
+
+.status4 {
+    background: #527BA0;
+}
+
+.status5 {
+    background: #254E77;
+}

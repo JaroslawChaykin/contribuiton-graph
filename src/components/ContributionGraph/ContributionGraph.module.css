@@ -3,5 +3,12 @@
     flex-direction: column;
     flex-wrap: wrap;
     height: calc(17 * 7px);
-    gap: 2px;
+}
+
+.weeks {
+    display: flex;
+}
+
+.body {
+    display: flex;
 }

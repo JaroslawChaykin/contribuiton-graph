@@ -1,0 +1,12 @@
+.months {
+    display: flex;
+    margin-right: 6px;
+    margin-left: 30px;
+    margin-bottom: 5px;
+}
+
+.monthItem {
+    font-size: 12px;
+    color: #959494;
+    margin-right: 43px;
+}

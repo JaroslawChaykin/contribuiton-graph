@@ -1,7 +1,16 @@
+.cellBody {
+    position: relative;
+}
+
 .cell {
     width: 15px;
     height: 15px;
     background: #EDEDED;
+    border: 1px solid white;
+}
+
+.cell:hover {
+    border-color: rgba(0, 0, 0, 0.5);
 }
 
 .cellStatus1 {
@@ -18,4 +27,10 @@
 
 .cellStatus4 {
     background: #254E77;
+}
+
+.date {
+    padding-top: 4px;
+    white-space: nowrap;
+    color: #7C7C7C;
 }

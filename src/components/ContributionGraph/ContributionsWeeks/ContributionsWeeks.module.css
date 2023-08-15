@@ -1,0 +1,13 @@
+.weeks {
+    display: flex;
+    flex-direction: column;
+    margin-right: 6px;
+}
+
+.weekDay {
+    display: flex;
+    align-items: center;
+    height: 17px;
+    font-size: 12px;
+    color: #959494;
+}

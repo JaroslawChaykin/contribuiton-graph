@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
+import ContributionsTooltip from "../ContributionsTooltip/ContributionsTooltip";
+import {format} from "date-fns";
 import cl from './ContributionGraphCell.module.css';
 
-const ContributionGraphCell = ({day}) => {
+const ContributionGraphCell = ({day, selectedCell, onChange}) => {
     const [date, value] = day;
+
     const setBackgroundColor = () => {
 
         if (value === 0) {
@@ -18,10 +21,28 @@ const ContributionGraphCell = ({day}) => {
         }
     }
 
-    const classnames = cl.cell + ' ' + setBackgroundColor()
+    const formatingDate = () => {
+        const correctDate = new Date(date);
+        const weekDay = format(correctDate, 'EEEE');
+        const month = format(correctDate, 'MMMM');
+        const day = format(correctDate, 'dd');
+        const year = format(correctDate, 'uuuu');
+
+        return `${weekDay}, ${month} ${day}, ${year}`
+    }
+
+    const classnames = cl.cell + ' ' + setBackgroundColor();
 
     return (
-        <div className={classnames} title={`${date}`}></div>
+        <div className={cl.cellBody}>
+            <div className={classnames} title={`${date}`} onClick={() => onChange(date)}></div>
+            <ContributionsTooltip hidden={date !== selectedCell}>
+                <div>
+                    <div className={cl.contributions}>{value} contributions</div>
+                    <div className={cl.date}>{formatingDate()}</div>
+                </div>
+            </ContributionsTooltip>
+        </div>
     );
 };
 

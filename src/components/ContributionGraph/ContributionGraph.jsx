@@ -1,9 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {addDays, format} from "date-fns";
 import ContributionGraphCell from "./ContributionGraphCell/ContributionGraphCell";
 import cl from './ContributionGraph.module.css'
+import ContributionsWeeks from "./ContributionsWeeks/ContributionsWeeks";
+import ContributionMonth from "./ContributionMonth/ContributionMonth";
+import ContributionStatusInfo from "./ContributionStatusInfo/ContributionStatusInfo";
 
 const ContributionGraph = ({contributionList}) => {
+
+    const [selectedCell, setSelectedCell] = useState('')
 
     const createCells = () => {
         const lengthDays = 357;
@@ -36,13 +41,24 @@ const ContributionGraph = ({contributionList}) => {
     }
 
     return (
-        <div className={cl.contributionTable}>
-            {
-                createCells().map((item) => (
-                    <ContributionGraphCell key={item[0]} day={item}/>
-                ))
-            }
-        </div>
+        <main>
+            <ContributionMonth lastDay={createCells()[0]}/>
+
+            <div className={cl.weeks}>
+                <ContributionsWeeks lastDay={createCells()[0]}/>
+
+                <div className={cl.contributionTable}>
+                    {
+                        createCells().map((item) => (
+                            <ContributionGraphCell key={item[0]} day={item} selectedCell={selectedCell} onChange={setSelectedCell}/>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <ContributionStatusInfo />
+        </main>
+
     );
 };
 
