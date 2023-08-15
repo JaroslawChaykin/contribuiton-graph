@@ -1,0 +1,21 @@
+.cell {
+    width: 15px;
+    height: 15px;
+    background: #EDEDED;
+}
+
+.cellStatus1 {
+    background: #ACD5F2;
+}
+
+.cellStatus2 {
+    background: #7FA8C9;
+}
+
+.cellStatus3 {
+    background: #527BA0;
+}
+
+.cellStatus4 {
+    background: #254E77;
+}
